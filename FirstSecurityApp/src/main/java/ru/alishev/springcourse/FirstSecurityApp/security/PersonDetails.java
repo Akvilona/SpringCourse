@@ -4,10 +4,12 @@
 package ru.alishev.springcourse.FirstSecurityApp.security;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.alishev.springcourse.FirstSecurityApp.models.Person;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class PersonDetails implements UserDetails  {
     private final Person person;
@@ -19,7 +21,9 @@ public class PersonDetails implements UserDetails  {
     /** методы из UserDetails которые нужны для секюрити */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null; // будем получать роли которые есть у пользователя
+        /** будем получать роли которые есть у пользователя
+         * ROLE_ADMIN или ROLE_USER это роли */
+        return Collections.singletonList(new SimpleGrantedAuthority(person.getRole()));
     }
 
     @Override

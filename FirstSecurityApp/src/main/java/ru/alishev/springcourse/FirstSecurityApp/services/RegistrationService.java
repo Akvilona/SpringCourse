@@ -27,6 +27,9 @@ public class RegistrationService {
          * шифрованный код и обновляем пароль у пользователя */
         person.setPassword(passwordEncoder.encode(person.getPassword()));
 
+        /** добавление роли для пользователя по умолчанию */
+        person.setRole("ROLE_USER");
+
         /** сохраняем пользователя и пароль */
         peopleRepository.save(person);
     }

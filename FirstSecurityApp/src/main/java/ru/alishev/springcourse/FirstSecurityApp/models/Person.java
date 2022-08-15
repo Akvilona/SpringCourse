@@ -28,6 +28,8 @@ public class Person {
     @Column(name = "password")
     private String password;
 
+    @Column (name = "role")
+    private String role;
     /** пустой конструктор, который нужен для Spring */
     public Person () {
     }
@@ -76,6 +78,16 @@ public class Person {
     /** геттеры и сеттеры */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /** геттеры и сеттеры */
+    public String getRole() {
+        return role;
+    }
+
+    /** геттеры и сеттеры */
+    public void setRole(String role) {
+        this.role = role;
     }
 
     /** для отображения в консоли */
